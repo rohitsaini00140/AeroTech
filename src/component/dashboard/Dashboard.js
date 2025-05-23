@@ -2,8 +2,6 @@ import { Box, Card, CardContent, Typography } from "@mui/material";
 import {
   People,
   AttachMoney,
-  ShoppingCart,
-  Feedback,
   CheckCircle,
   Cancel,
   Pending,
@@ -13,6 +11,7 @@ import {
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid } from "@mui/system";
+import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -62,17 +61,20 @@ const DashboardContent = () => {
       title: "Users",
       value: data.totalUser,
       icon: <People fontSize="large" color="primary" />,
+      link:""
       
     },
     {
       title: "Revenue",
       value: `$${data.totalPrice}`,
       icon: <AttachMoney fontSize="large" color="success" />,
+      link:""
     },
     {
       title: "Items",
       value: data.totalItem,
       icon: <Inventory fontSize="large" color="info" />,
+      link:"/dashboard/getitem"
     },
     {
       title: "Completed Orders",
@@ -83,16 +85,19 @@ const DashboardContent = () => {
       title: "Pending Orders",
       value: data.totalPending,
       icon: <Pending fontSize="large" color="warning" />,
+      link:""
     },
     {
       title: "Cancelled Orders",
       value: data.totalOrderCancel,
       icon: <Cancel fontSize="large" color="error" />,
+      link:""
     },
     {
       title: "Leaves",
       value: data.totalLeave,
       icon: <TimeToLeave fontSize="large" color="secondary" />,
+      link:"/dashboard/leave"
     },
   ];
 
@@ -115,8 +120,10 @@ const DashboardContent = () => {
         Dashboard Overview
       </Typography>
       <Grid container spacing={2}>
-        {cards.map(({ title, value, icon }) => (
+        {cards.map(({ title, value, icon ,link}) => (
           <Grid item   size={{xs:6,sm:3,md:3}} key={title}>
+
+            <Link to={link} style={{ textDecoration: 'none' }}> 
             <Card
               elevation={3}
               sx={{
@@ -140,7 +147,10 @@ const DashboardContent = () => {
                 </Box>
                 <Typography variant="h4">{value}</Typography>
               </CardContent>
+
+              
             </Card>
+            </Link>
           </Grid>
         ))}
       </Grid>

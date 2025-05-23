@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 const AddHoliday = () => {
+const navigate = useNavigate();
 
   
   const [holiday, setHoliday] = useState({
@@ -33,7 +34,7 @@ const AddHoliday = () => {
       date: '',
       description: ''
     });
-
+  navigate('/dashboard/getadminholiday');
   })
   .catch(error => {
     console.error('Error adding holiday:', error);

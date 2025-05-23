@@ -81,6 +81,7 @@ function GetHolidays() {
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Date</strong></TableCell>
               <TableCell><strong>Description</strong></TableCell>
+             
             </TableRow>
           </TableHead>
           <TableBody>

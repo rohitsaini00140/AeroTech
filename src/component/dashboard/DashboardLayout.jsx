@@ -14,9 +14,9 @@ import {
   Business,
   Contacts,
 } from "@mui/icons-material";
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import GroupAddIcon from '@mui/icons-material/GroupAdd';
-import EventBusyIcon from '@mui/icons-material/EventBusy';
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import EventBusyIcon from "@mui/icons-material/EventBusy";
 
 import { Sidebar, SidebarItem } from "./Sidebar";
 import { Outlet } from "react-router-dom";
@@ -49,20 +49,47 @@ export default function DashboardLayout() {
 
   const drawer = (
     <Sidebar>
-      <SidebarItem icon={<DashboardIcon />} text="Dashboard" to="/dashboard" />
-      <SidebarItem icon={<GroupAddIcon />} text="Admin" to="/dashboard/admin" />
-      <SidebarItem icon={<ExitToAppIcon/>} text="Leave" to="/dashboard/leave" />
-      <SidebarItem icon={<Business />} text="GetItem" to="/dashboard/getitem" />
-      <SidebarItem icon={<Contacts />} text="AdminHoliday" to="/dashboard/adminholiday" />
-      <SidebarItem icon={<EventBusyIcon />} text="GetHoliday" to="/dashboard/getadminholiday" />
+      <SidebarItem
+        icon={<DashboardIcon sx={{ color: "#1976D2" }} />}
+        text="Dashboard"
+        to="/dashboard"
+      />
+      <SidebarItem
+        icon={<GroupAddIcon sx={{ color: "#1976D2" }} />}
+        text="Admin"
+        to="/dashboard/admin"
+      />
+      <SidebarItem
+        icon={<ExitToAppIcon sx={{ color: "#1976D2" }} />}
+        text="Leave"
+        to="/dashboard/leave"
+      />
+      <SidebarItem
+        icon={<Business sx={{ color: "#1976D2" }} />}
+        text="GetItem"
+        to="/dashboard/getitem"
+      />
+      <SidebarItem
+        icon={<Contacts sx={{ color: "#1976D2" }} />}
+        text="AdminHoliday"
+        to="/dashboard/adminholiday"
+      />
+      <SidebarItem
+        icon={<EventBusyIcon sx={{ color: "#1976D2" }} />}
+        text="GetHoliday"
+        to="/dashboard/getadminholiday"
+      />
     </Sidebar>
   );
 
   return (
-    <Box sx={{ display: "flex", height: "100vh",bgcolor:"#f5f5f5"}}>
+    <Box sx={{ display: "flex", height: "100vh", bgcolor: "#f5f5f5" }}>
       <CssBaseline />
       {isMobile && (
-        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
+        <AppBar
+          position="fixed"
+          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        >
           <Toolbar>
             <IconButton
               color="inherit"

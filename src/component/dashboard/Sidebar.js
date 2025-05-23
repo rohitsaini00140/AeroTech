@@ -37,9 +37,9 @@ export function SidebarItem({ icon, text, badge, to }) {
     <ListItemButton
       component={NavLink}
       to={to}
-      style={({ isActive }) => ({
-        backgroundColor: isActive ? "#e0e0e0" : "inherit",
-      })}
+      // style={({ isActive }) => ({
+      //   backgroundColor: isActive ? "#e0e0e0" : "inherit",
+      // })}
     >
       <ListItemIcon>
         {badge ? (
