@@ -1,6 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Box } from "@mui/system";
+import {
+  Box,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  CircularProgress,
+  Alert,
+} from "@mui/material";
 
 const drawerWidth = 240;
 
@@ -28,41 +40,60 @@ function GetHolidays() {
       });
   }, []);
 
-  if (loading) return <p>Loading holidays...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading)
+    return (
+      <Box sx={{ display: "flex", justifyContent: "center", mt: 4 }}>
+        <CircularProgress />
+      </Box>
+    );
+
+  if (error)
+    return (
+      <Box sx={{ mt: 4 }}>
+        <Alert severity="error">{error}</Alert>
+      </Box>
+    );
 
   return (
-    <Box  sx={{
+    <Box
+      sx={{
         width: {
           xs: "100%",
           sm: `calc(100% - ${drawerWidth}px)`,
         },
-        marginLeft: {
+        ml: {
           xs: 0,
           sm: `${drawerWidth}px`,
         },
-        padding: 2,
+        px: 3,
+        py: 2,
         boxSizing: "border-box",
-      }}>
-      <h2>Holidays</h2>
-      <table border="1" cellPadding="8" cellSpacing="0">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {holidays.map(({ name, date, description }, index) => (
-            <tr key={index}>
-              <td>{name}</td>
-              <td>{new Date(date).toLocaleDateString()}</td>
-              <td>{description}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      }}
+    >
+      <Typography variant="h4" gutterBottom>
+        Holidays
+      </Typography>
+
+      <TableContainer component={Paper} sx={{ boxShadow: 3 }}>
+        <Table>
+          <TableHead>
+            <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
+              <TableCell><strong>Name</strong></TableCell>
+              <TableCell><strong>Date</strong></TableCell>
+              <TableCell><strong>Description</strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {holidays.map(({ name, date, description }, index) => (
+              <TableRow key={index} hover>
+                <TableCell>{name}</TableCell>
+                <TableCell>{new Date(date).toLocaleDateString()}</TableCell>
+                <TableCell>{description}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 }

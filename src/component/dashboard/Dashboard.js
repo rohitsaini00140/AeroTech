@@ -54,6 +54,9 @@ const DashboardContent = () => {
     }
   }, []);
 
+
+  console.log(data,'dddddddddd')
+
   const cards = [
     {
       title: "Users",
@@ -116,7 +119,7 @@ const DashboardContent = () => {
             <Card
               elevation={3}
               sx={{
-                backgroundColor: "#f9f9f9",
+                backgroundColor: "#ffff",
                 height: "100%", // ensures card takes full height of grid row
                 display: "flex",
                 flexDirection: "column",

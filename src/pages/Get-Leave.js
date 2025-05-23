@@ -80,13 +80,13 @@ export default function LeaveRequestsPage() {
         <TableContainer component={Paper}>
           <Table>
             <TableHead>
-              <TableRow>
-                <TableCell>Employee ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Leave Type</TableCell>
-                <TableCell>Reason</TableCell>
-                <TableCell>Start Date</TableCell>
-                <TableCell>End Date</TableCell>
+              <TableRow >
+                <TableCell sx={{ fontWeight: 'bolder' }}>Employee ID</TableCell>
+                <TableCell sx={{ fontWeight: 'bolder' }}>Name</TableCell>
+                <TableCell sx={{ fontWeight: 'bolder' }}>Leave Type</TableCell>
+                <TableCell sx={{ fontWeight: 'bolder' }}>Reason</TableCell>
+                <TableCell sx={{ fontWeight: 'bolder' }}>Start Date</TableCell>
+                <TableCell sx={{ fontWeight: 'bolder' }}>End Date</TableCell>
                 
               </TableRow>
             </TableHead>

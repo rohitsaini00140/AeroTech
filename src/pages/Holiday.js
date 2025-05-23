@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField, Button, Card, CardContent, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 
 const AddHoliday = () => {
+
+  
   const [holiday, setHoliday] = useState({
     name: '',
     date: '',
@@ -16,7 +20,7 @@ const AddHoliday = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+ const handleSubmit = (e) => {
   e.preventDefault();
 
   axios.post('http://10.5.49.244:5000/api/admin/holiday', {
@@ -24,12 +28,12 @@ const AddHoliday = () => {
   })
   .then(response => {
     alert('Holiday added successfully!');
-    // Clear the form inputs after successful submission
     setHoliday({
       name: '',
       date: '',
       description: ''
     });
+
   })
   .catch(error => {
     console.error('Error adding holiday:', error);
