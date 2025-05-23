@@ -1,3 +1,6 @@
+// src/component/dashboard/Sidebar.jsx
+import React from "react";
+import { NavLink } from "react-router-dom";
 import {
   Drawer,
   List,
@@ -19,7 +22,7 @@ export function Sidebar({ children }) {
         "& .MuiDrawer-paper": {
           width: drawerWidth,
           boxSizing: "border-box",
-          backgroundColor: "#f5f5f5",
+          backgroundColor: "#ffff",
           borderRight: "1px solid #ddd",
         },
       }}
@@ -29,9 +32,15 @@ export function Sidebar({ children }) {
   );
 }
 
-export function SidebarItem({ icon, text, selected, badge, onClick }) {
+export function SidebarItem({ icon, text, badge, to }) {
   return (
-    <ListItemButton selected={selected} onClick={onClick}>
+    <ListItemButton
+      component={NavLink}
+      to={to}
+      style={({ isActive }) => ({
+        backgroundColor: isActive ? "#e0e0e0" : "inherit",
+      })}
+    >
       <ListItemIcon>
         {badge ? (
           <Badge badgeContent={badge} color="primary">

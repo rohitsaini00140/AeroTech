@@ -14,20 +14,15 @@ import {
   Business,
   Contacts,
 } from "@mui/icons-material";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import GroupAddIcon from '@mui/icons-material/GroupAdd';
+import EventBusyIcon from '@mui/icons-material/EventBusy';
 
-import { Sidebar, SidebarItem } from "./Sidebar"; // your sidebar components
-import AdminRegisterForm from "./AdminContent"; // your admin form
-import GetLeavePage from "../../pages/Get-Leave"; // leave page
-import DashboardContent from "./Dashboard";
-import AdminLogin from "../../pages/AdminLogin";
-import HolidayList from "../../pages/Holiday";
-import GetItem from "../../pages/GetItem";
-import GetHolidays from "../../pages/GetHoliday";
-
+import { Sidebar, SidebarItem } from "./Sidebar";
+import { Outlet } from "react-router-dom";
 
 const drawerWidth = 240;
 
-// Custom hook to detect mobile
 function useIsMobile(breakpoint = 600) {
   const [isMobile, setIsMobile] = useState(
     typeof window !== "undefined" ? window.innerWidth <= breakpoint : false
@@ -45,103 +40,29 @@ function useIsMobile(breakpoint = 600) {
 }
 
 export default function DashboardLayout() {
-  const [selectedMenu, setSelectedMenu] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("selectedMenu") || "dashboard";
-    }
-    return "dashboard";
-  });
   const [mobileOpen, setMobileOpen] = useState(false);
-
   const isMobile = useIsMobile(600);
-
-  useEffect(() => {
-    localStorage.setItem("selectedMenu", selectedMenu);
-  }, [selectedMenu]);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
-  const handleMenuClick = (menu) => {
-    setSelectedMenu(menu);
-    if (isMobile) setMobileOpen(false);
-  };
-
-  // Inside DashboardLayout component
-function renderContent() {
-  switch (selectedMenu) {
-    case "dashboard":
-      return <DashboardContent />;
-    case "admin":
-      return <AdminRegisterForm />;
-    case "leave":
-      return <GetLeavePage />;
-    case "AdminHoliday":
-      return <HolidayList />;
-      case "GetAdminHoliday":
-      return <GetHolidays/>;
-    case "getitem":
-      return <GetItem/>
-    default:
-      return null;
-  }
-}
-
   const drawer = (
     <Sidebar>
-
-      
-      <SidebarItem
-        icon={<DashboardIcon />}
-        text="Dashboard"
-        selected={selectedMenu === "dashboard"}
-        onClick={() => handleMenuClick("dashboard")}
-      />
-
-     
-      <SidebarItem
-        icon={<DashboardIcon />}
-        text="Admin"
-        selected={selectedMenu === "admin"}
-        onClick={() => handleMenuClick("admin")}
-      />
-      <SidebarItem
-        icon={<Business />}
-        text="Leave"
-        selected={selectedMenu === "leave"}
-        onClick={() => handleMenuClick("leave")}
-      />
-      <SidebarItem
-        icon={<Contacts />}
-        text="GetItem"
-        selected={selectedMenu === "getitem"}
-        onClick={() => handleMenuClick("getitem")}
-      />
-       <SidebarItem
-        icon={<Contacts />}
-        text="AdminHoliday"
-        selected={selectedMenu === "AdminHoliday"}
-        onClick={() => handleMenuClick("AdminHoliday")}
-      />
-       <SidebarItem
-        icon={<Contacts />}
-        text="GetHoliday"
-        selected={selectedMenu === "GetAdminHoliday"}
-        onClick={() => handleMenuClick("GetAdminHoliday")}
-      />
-      
+      <SidebarItem icon={<DashboardIcon />} text="Dashboard" to="/dashboard" />
+      <SidebarItem icon={<GroupAddIcon />} text="Admin" to="/dashboard/admin" />
+      <SidebarItem icon={<ExitToAppIcon/>} text="Leave" to="/dashboard/leave" />
+      <SidebarItem icon={<Business />} text="GetItem" to="/dashboard/getitem" />
+      <SidebarItem icon={<Contacts />} text="AdminHoliday" to="/dashboard/adminholiday" />
+      <SidebarItem icon={<EventBusyIcon />} text="GetHoliday" to="/dashboard/getadminholiday" />
     </Sidebar>
   );
 
   return (
-    <Box sx={{ display: "flex", height: "100vh",  }}>
+    <Box sx={{ display: "flex", height: "100vh",bgcolor:"#f5f5f5"}}>
       <CssBaseline />
       {isMobile && (
-        <AppBar
-          position="fixed"
-          sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        >
+        <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -169,13 +90,11 @@ function renderContent() {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
-               mt: "50px" 
+              mt: "50px",
             },
           }}
         >
-
-             {drawer}
-
+          {drawer}
         </Drawer>
       ) : (
         <Drawer
@@ -204,7 +123,7 @@ function renderContent() {
           boxSizing: "border-box",
         }}
       >
-        {renderContent()}
+        <Outlet /> {/* This renders the nested route component */}
       </Box>
     </Box>
   );
