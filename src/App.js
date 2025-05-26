@@ -9,6 +9,8 @@ import GetLeavePage from './pages/Get-Leave';
 import HolidayList from './pages/Holiday';
 import GetItem from './pages/GetItem';
 import GetHolidays from './pages/GetHoliday';
+import CreateUserForm from './pages/user/CreateUser';
+import GetUser from './pages/user/GetUser';
 
 const App = () => (
   <Router>
@@ -21,6 +23,8 @@ const App = () => (
         <Route path="getitem" element={<GetItem />} /> {/* /dashboard/getitem */}
         <Route path="adminholiday" element={<HolidayList />} /> {/* /dashboard/adminholiday */}
         <Route path="getadminholiday" element={<GetHolidays />} /> {/* /dashboard/getadminholiday */}
+        <Route path="create-user" element={<CreateUserForm/>} /> {/* /dashboard/getadminholiday */}
+        <Route path="get-user" element={<GetUser/>} /> {/* /dashboard/getadminholiday */}
       </Route>
       <Route path="/leave-requests" element={<GetLeavePage />} /> {/* your other route */}
     </Routes>

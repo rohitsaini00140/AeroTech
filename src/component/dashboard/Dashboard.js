@@ -1,7 +1,6 @@
 import { Box, Card, CardContent, Typography } from "@mui/material";
 import {
   People,
-  AttachMoney,
   CheckCircle,
   Cancel,
   Pending,
@@ -12,6 +11,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid } from "@mui/system";
 import { Link } from "react-router-dom";
+import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 const drawerWidth = 240;
 
@@ -61,13 +61,15 @@ const DashboardContent = () => {
       title: "Users",
       value: data.totalUser,
       icon: <People fontSize="large" color="primary" />,
-      link:""
+      link:"/dashboard/get-user"
       
     },
     {
       title: "Revenue",
-      value: `$${data.totalPrice}`,
-      icon: <AttachMoney fontSize="large" color="success" />,
+      // value: `$${data.totalPrice}`,
+      value: `₹${data.totalPrice.toLocaleString('en-IN')}`,
+      // icon: <AttachMoney fontSize="large" color="success" />,
+      icon: <CurrencyRupeeIcon fontSize="large" color="success" />,
       link:""
     },
     {

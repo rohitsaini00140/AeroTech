@@ -17,6 +17,8 @@ import {
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
+import NoteAddIcon from '@mui/icons-material/NoteAdd';
+import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
 
 import { Sidebar, SidebarItem } from "./Sidebar";
 import { Outlet } from "react-router-dom";
@@ -78,6 +80,17 @@ export default function DashboardLayout() {
         icon={<EventBusyIcon sx={{ color: "#1976D2" }} />}
         text="GetHoliday"
         to="/dashboard/getadminholiday"
+      />
+      <SidebarItem
+        icon={<CreateNewFolderIcon sx={{ color: "#1976D2" }} />}
+        text="CreateUser"
+        to="/dashboard/create-user"
+      />
+    
+      <SidebarItem
+        icon={<NoteAddIcon sx={{ color: "#1976D2" }} />}
+        text="GetUser"
+        to="/dashboard/get-user"
       />
     </Sidebar>
   );
