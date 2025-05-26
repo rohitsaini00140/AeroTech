@@ -118,7 +118,7 @@ const DashboardContent = () => {
         boxSizing: "border-box",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color:"white"}}>
         Dashboard Overview
       </Typography>
       <Grid container spacing={2}>

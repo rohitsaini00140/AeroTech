@@ -113,16 +113,15 @@ function GetItem() {
           mb: 2,
         }}
       >
-        <Typography variant="h4" gutterBottom>
-          Get Items (Table View)
+        <Typography variant="h4" gutterBottom sx={{color:"white"}}>
+          Get Items
         </Typography>
 
-      <a href={excel.downloadUrl} download style={{ textDecoration: 'none' }}>
-  <Button variant="contained" color="primary">
-    Excel Download
-  </Button>
-</a>
-
+        <a href={excel.downloadUrl} download style={{ textDecoration: "none" }}>
+          <Button variant="contained" color="primary">
+            Excel Download
+          </Button>
+        </a>
       </Box>
 
       {loading && <CircularProgress />}
@@ -143,12 +142,13 @@ function GetItem() {
             <TableHead>
               <TableRow>
                 {allKeys.map((key) => (
-                  <TableCell key={key} sx={{ fontWeight: "bold" }}>
-                    {key}
+                  <TableCell key={key} sx={{ fontWeight: "bolder" }}>
+                    {key.charAt(0).toUpperCase() + key.slice(1)}
                   </TableCell>
                 ))}
               </TableRow>
             </TableHead>
+
             <TableBody>
               {items.map((item) => (
                 <TableRow key={item._id}>

@@ -119,14 +119,14 @@ const GetUsers = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Number</TableCell>
-              <TableCell>Role</TableCell>
-              <TableCell>Customer</TableCell>
-              <TableCell>Created At</TableCell>
-              <TableCell>Updated At</TableCell>
-              <TableCell>Actions</TableCell>
+              <TableCell sx={{ fontWeight: "bold" }}>Name</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Email</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Number</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Role</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Customer</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Created At</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Updated At</TableCell>
+              <TableCell  sx={{ fontWeight: "bold" }}>Actions</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

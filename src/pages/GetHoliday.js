@@ -70,7 +70,7 @@ function GetHolidays() {
         boxSizing: "border-box",
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color:"white"}}>
         Holidays
       </Typography>
 

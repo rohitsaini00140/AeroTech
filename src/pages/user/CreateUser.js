@@ -45,8 +45,8 @@ const CreateUserForm = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 3, boxShadow: 3, borderRadius: 2 }}>
-      <Typography variant="h6" gutterBottom>Create User</Typography>
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 3, boxShadow: 3, borderRadius: 2,bgcolor:"white" }}>
+      <Typography variant="h6" sx={{fontWeight:"bolder"}} gutterBottom>Create User</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Name"

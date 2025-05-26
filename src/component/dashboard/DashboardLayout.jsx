@@ -52,43 +52,43 @@ export default function DashboardLayout() {
   const drawer = (
     <Sidebar>
       <SidebarItem
-        icon={<DashboardIcon sx={{ color: "#1976D2" }} />}
+        icon={<DashboardIcon sx={{ color: "#8E0048" }} />}
         text="Dashboard"
         to="/dashboard"
       />
       <SidebarItem
-        icon={<GroupAddIcon sx={{ color: "#1976D2" }} />}
+        icon={<GroupAddIcon sx={{ color: "#8E0048" }} />}
         text="Admin"
         to="/dashboard/admin"
       />
       <SidebarItem
-        icon={<ExitToAppIcon sx={{ color: "#1976D2" }} />}
+        icon={<ExitToAppIcon sx={{ color: "#8E0048" }} />}
         text="Leave"
         to="/dashboard/leave"
       />
       <SidebarItem
-        icon={<Business sx={{ color: "#1976D2" }} />}
+        icon={<Business sx={{ color: "#8E0048" }} />}
         text="GetItem"
         to="/dashboard/getitem"
       />
       <SidebarItem
-        icon={<Contacts sx={{ color: "#1976D2" }} />}
+        icon={<Contacts sx={{ color: "#8E0048" }} />}
         text="AdminHoliday"
         to="/dashboard/adminholiday"
       />
       <SidebarItem
-        icon={<EventBusyIcon sx={{ color: "#1976D2" }} />}
+        icon={<EventBusyIcon sx={{ color: "#8E0048" }} />}
         text="GetHoliday"
         to="/dashboard/getadminholiday"
       />
       <SidebarItem
-        icon={<CreateNewFolderIcon sx={{ color: "#1976D2" }} />}
+        icon={<CreateNewFolderIcon sx={{ color: "#8E0048" }} />}
         text="CreateUser"
         to="/dashboard/create-user"
       />
     
       <SidebarItem
-        icon={<NoteAddIcon sx={{ color: "#1976D2" }} />}
+        icon={<NoteAddIcon sx={{ color: "#8E0048" }} />}
         text="GetUser"
         to="/dashboard/get-user"
       />
@@ -96,7 +96,7 @@ export default function DashboardLayout() {
   );
 
   return (
-    <Box sx={{ display: "flex", height: "100vh", bgcolor: "#f5f5f5" }}>
+    <Box sx={{ display: "flex", height: "100vh", bgcolor: "#8E0048" }}>
       <CssBaseline />
       {isMobile && (
         <AppBar

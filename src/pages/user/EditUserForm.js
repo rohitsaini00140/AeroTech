@@ -86,8 +86,8 @@ const EditUserForm = () => {
   return loading ? (
     <Typography align="center" sx={{ mt: 5 }}>Loading user data...</Typography>
   ) : (
-    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 3, boxShadow: 3, borderRadius: 2 }}>
-      <Typography variant="h6" gutterBottom>Edit User</Typography>
+    <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4, p: 3, bgcolor:"white", boxShadow: 3, borderRadius: 2 }}>
+      <Typography variant="h6" gutterBottom sx={{fontWeight:'bolder'}}>Edit User</Typography>
       <form onSubmit={handleSubmit}>
         <TextField
           label="Name"
@@ -97,6 +97,7 @@ const EditUserForm = () => {
           fullWidth
           margin="normal"
           required
+         
         />
         <TextField
           label="Email"

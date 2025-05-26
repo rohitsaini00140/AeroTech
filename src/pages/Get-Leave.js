@@ -104,7 +104,7 @@ export default function LeaveRequestsPage() {
         marginLeft: { xs: 0, sm: `${drawerWidth}px` },
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color:'white'}}>
         Leave Requests
       </Typography>
 

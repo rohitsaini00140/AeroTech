@@ -52,7 +52,7 @@ const handleSubmit = async (e) => {
 };
 
   return (
-    <Container maxWidth="sm" sx={{ mt: 8 }}>
+    <Container maxWidth="sm" sx={{ mt: 8,}}>
       <Paper elevation={3} sx={{ p: 4 }}>
         <Typography variant="h5" gutterBottom align="center">
           Admin Login
