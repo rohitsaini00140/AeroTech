@@ -11,6 +11,8 @@ import GetItem from './pages/GetItem';
 import GetHolidays from './pages/GetHoliday';
 import CreateUserForm from './pages/user/CreateUser';
 import GetUser from './pages/user/GetUser';
+import EditUserForm from './pages/user/EditUserForm';
+
 
 const App = () => (
   <Router>
@@ -25,6 +27,10 @@ const App = () => (
         <Route path="getadminholiday" element={<GetHolidays />} /> {/* /dashboard/getadminholiday */}
         <Route path="create-user" element={<CreateUserForm/>} /> {/* /dashboard/getadminholiday */}
         <Route path="get-user" element={<GetUser/>} /> {/* /dashboard/getadminholiday */}
+       
+
+         <Route path="/dashboard/edit-user/:id" element={<EditUserForm />} />
+
       </Route>
       <Route path="/leave-requests" element={<GetLeavePage />} /> {/* your other route */}
     </Routes>
