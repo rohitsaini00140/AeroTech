@@ -48,10 +48,12 @@ function ItemStatus() {
 
   if (loading) return <Typography>Loading...</Typography>;
   if (error) return <Typography color="error">{error}</Typography>;
-  if (!statusData || !statusData.creater)
+  if (!statusData || !statusData.AllStatus)
     return <Typography>No status data found.</Typography>;
 
-  const item = statusData.creater; // Your single data object
+  const item = statusData.AllStatus; // Your single data object
+
+  console.log(item);
 
   return (
     <Container
@@ -68,74 +70,61 @@ function ItemStatus() {
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-        <Typography variant="h4" gutterBottom sx={{color:"white"}}>
-        Status Details
+        <Typography variant="h4" gutterBottom sx={{ color: "white" }}>
+          Status Details
         </Typography>
-        <Button  variant="outlined" onClick={() => navigate(-1)} sx={{ mb: 2,bgcolor:"white",color:"black"}}>
+        <Button
+          variant="outlined"
+          onClick={() => navigate(-1)}
+          sx={{ mb: 2, bgcolor: "white", color: "black" }}
+        >
           Back
         </Button>
       </Box>
 
       <TableContainer component={Paper}>
-        <Table >
-          <TableHead>
-            <TableRow>
-              {/* <TableCell>ID</TableCell> */}
-              <TableCell sx={{fontWeight:"bolder"}}>Party Name</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Email</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Mobile Number</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Delivery Date</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Address</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Box Color</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Other Details</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Status</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Advance Amount</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Dew Payment</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Choose Paper Size</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Box Quantity Total</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Total Price Aco Shit</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Final Price</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Sheets Required</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Box Dimensions</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Sales Person Location</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Customer Ref</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Product ID</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Created At</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>Updated At</TableCell>
-              <TableCell sx={{fontWeight:"bolder"}}>__v</TableCell>
-            </TableRow>
-          </TableHead>
+        <Table>
+    <TableHead>
+    <TableRow>
+      {/* <TableCell sx={{ fontWeight: "bolder" }}>Sales Person Location</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Customer Ref</TableCell> */}
+      <TableCell sx={{ fontWeight: "bolder" }}>Product ID</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Created At</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Updated At</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Designer Forward Date</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Designer Status</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Designer Person ID</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Print Forward Date</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Print Status</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Print Person ID</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Sales Forward Date</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Sales Status</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Sales Person ID</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>PID</TableCell>
+      <TableCell sx={{ fontWeight: "bolder" }}>Delivery Date</TableCell>
+    </TableRow>
+  </TableHead>
 
-          <TableBody>
-            <TableRow>
-              {/* <TableCell>{item._id}</TableCell> */}
-              <TableCell>{item.partyName}</TableCell>
-              <TableCell>{item.Email}</TableCell>
-              <TableCell>{item.MobileNumber}</TableCell>
-              <TableCell>
-                {new Date(item.DeliveryDate).toLocaleDateString()}
-              </TableCell>
-              <TableCell>{item.address}</TableCell>
-              <TableCell>{item.boxColor}</TableCell>
-              <TableCell>{item.otherDetails}</TableCell>
-              <TableCell>{item.status}</TableCell>
-              <TableCell>{item.AdvanceAmount}</TableCell>
-              <TableCell>{item.dewPayment}</TableCell>
-              <TableCell>{item.choosePaperSize}</TableCell>
-              <TableCell>{item.boxQuantityTotal}</TableCell>
-              <TableCell>{item.totalPriceAcoShit}</TableCell>
-              <TableCell>{item.finalPrice}</TableCell>
-              <TableCell>{item.sheetsRequired}</TableCell>
-              <TableCell>{item.boxDimensions}</TableCell>
-              <TableCell>{item.salesPersonLocation}</TableCell>
-              <TableCell>{item.customerRef}</TableCell>
-              <TableCell>{item.productId}</TableCell>
-              {/* <TableCell>{item.delete ? "Yes" : "No"}</TableCell> */}
-              <TableCell>{new Date(item.createdAt).toLocaleString()}</TableCell>
-              <TableCell>{new Date(item.updatedAt).toLocaleString()}</TableCell>
-              {/* <TableCell>{item.__v}</TableCell> */}
-            </TableRow>
-          </TableBody>
+         <TableBody>
+    <TableRow>
+        {/* <TableCell>{item.salesPersonLocation}</TableCell>
+        <TableCell>{item.customerRef}</TableCell> */}
+        <TableCell>{item.productId}</TableCell>
+        <TableCell>{new Date(item.createdAt).toLocaleString()}</TableCell>
+        <TableCell>{new Date(item.updatedAt).toLocaleString()}</TableCell>
+        <TableCell>{item.designerForwordDate}</TableCell>
+        <TableCell>{item.designerForwordStatus}</TableCell>
+        <TableCell>{item.designerPersonId}</TableCell>
+        <TableCell>{item.printForwordDate}</TableCell>
+        <TableCell>{item.printForwordStatus}</TableCell>
+        <TableCell>{item.printPersonId}</TableCell>
+        <TableCell>{item.salesForwordDate}</TableCell>
+        <TableCell>{item.salesForwordStatus}</TableCell>
+        <TableCell>{item.salesPersonId}</TableCell>
+        <TableCell>{item.pId}</TableCell>
+        <TableCell>{new Date(item.DeliveryDate).toLocaleDateString()}</TableCell>
+      </TableRow>
+  </TableBody>
         </Table>
       </TableContainer>
     </Container>

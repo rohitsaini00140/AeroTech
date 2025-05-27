@@ -130,7 +130,7 @@ function GetItem() {
       )}
 
       {!loading && items.length > 0 && (
-        <TableContainer component={Paper} sx={{ maxHeight: 600 }}>
+        <TableContainer component={Paper} >
           <Table >
             <TableHead>
               <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
