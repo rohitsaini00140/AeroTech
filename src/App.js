@@ -12,6 +12,9 @@ import GetHolidays from './pages/GetHoliday';
 import CreateUserForm from './pages/user/CreateUser';
 import GetUser from './pages/user/GetUser';
 import EditUserForm from './pages/user/EditUserForm';
+import ItemStatus from './pages/user/ItemStatus';
+import AddPaperForm from './pages/paperAdd/AddPaper';
+import GetPaper from './pages/paperAdd/GetPaper';
 
 
 const App = () => (
@@ -27,9 +30,12 @@ const App = () => (
         <Route path="getadminholiday" element={<GetHolidays />} /> {/* /dashboard/getadminholiday */}
         <Route path="create-user" element={<CreateUserForm/>} /> {/* /dashboard/getadminholiday */}
         <Route path="get-user" element={<GetUser/>} /> {/* /dashboard/getadminholiday */}
+        <Route path="addpaper-form" element={<AddPaperForm/>} /> {/* /dashboard/getadminholiday */}
+        <Route path="get-paper" element={<GetPaper/>} /> {/* /dashboard/getadminholiday */}
        
 
          <Route path="/dashboard/edit-user/:id" element={<EditUserForm />} />
+         <Route path="/dashboard/item-status/:id" element={<ItemStatus/>} />
 
       </Route>
       <Route path="/leave-requests" element={<GetLeavePage />} /> {/* your other route */}

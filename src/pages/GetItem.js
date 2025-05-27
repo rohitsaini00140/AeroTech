@@ -15,10 +15,12 @@ import {
   Button,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
 function GetItem() {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -46,14 +48,14 @@ function GetItem() {
     }
   };
 
-  console.log(excel.downloadUrl, "what is data");
-
   useEffect(() => {
     excelDownload();
   }, []);
 
   const getItem = async () => {
     const token = localStorage.getItem("adminToken");
+
+    console.log(token);
 
     try {
       const response = await axios.get(
@@ -64,6 +66,8 @@ function GetItem() {
           },
         }
       );
+
+      console.log(response, "what is data here");
 
       setItems(response.data.data || []);
     } catch (err) {
@@ -78,18 +82,7 @@ function GetItem() {
     getItem();
   }, []);
 
-  // Extract all possible keys except '_id' to create table headers
-  const allKeys = React.useMemo(() => {
-    const keysSet = new Set();
-    items.forEach((item) => {
-      Object.keys(item).forEach((key) => {
-        if (key !== "_id") {
-          keysSet.add(key);
-        }
-      });
-    });
-    return Array.from(keysSet);
-  }, [items]);
+  console.log(items, "kya aa raha ha");
 
   return (
     <Container
@@ -113,7 +106,7 @@ function GetItem() {
           mb: 2,
         }}
       >
-        <Typography variant="h4" gutterBottom sx={{color:"white"}}>
+        <Typography variant="h4" gutterBottom sx={{ color: "white" }}>
           Get Items
         </Typography>
 
@@ -138,23 +131,127 @@ function GetItem() {
 
       {!loading && items.length > 0 && (
         <TableContainer component={Paper} sx={{ maxHeight: 600 }}>
-          <Table stickyHeader aria-label="items table" size="small">
+          <Table >
             <TableHead>
-              <TableRow>
-                {allKeys.map((key) => (
-                  <TableCell key={key} sx={{ fontWeight: "bolder" }}>
-                    {key.charAt(0).toUpperCase() + key.slice(1)}
-                  </TableCell>
-                ))}
+              <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
+                <TableCell>
+                  <strong>PartyName</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>Email</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>MobileNumber</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>DeliveryDate</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>Address</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>BoxColor</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>OtherDetails</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>Status</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>AdvanceAmount</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>DewPayment</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>ChoosePaperSize</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>BoxQuantityTotal</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>TotalPriceAcoShit</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>FinalPrice</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>SheetsRequired</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>BoxDimensions</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>SalesPersonLocation</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>CustomerRef</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>ProductId</strong>
+                </TableCell>
+
+                <TableCell>
+                  <strong>CreatedAt</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>UpdatedAt</strong>
+                </TableCell>
+
+                <TableCell>
+                  <strong>ForwordTo</strong>
+                </TableCell>
+                <TableCell>
+                  <strong>ViewStatus</strong>
+                </TableCell>
               </TableRow>
             </TableHead>
 
             <TableBody>
               {items.map((item) => (
                 <TableRow key={item._id}>
-                  {allKeys.map((key) => (
-                    <TableCell key={key}>{String(item[key] ?? "")}</TableCell>
-                  ))}
+                  <TableCell>{item.partyName}</TableCell>
+                  <TableCell>{item.Email}</TableCell>
+                  <TableCell>{item.MobileNumber}</TableCell>
+                  <TableCell>
+                    {new Date(item.DeliveryDate).toLocaleDateString()}
+                  </TableCell>
+                  <TableCell>{item.address}</TableCell>
+                  <TableCell>{item.boxColor}</TableCell>
+                  <TableCell>{item.otherDetails}</TableCell>
+                  <TableCell>{item.status}</TableCell>
+                  <TableCell>{item.AdvanceAmount}</TableCell>
+                  <TableCell>{item.dewPayment}</TableCell>
+                  <TableCell>{item.choosePaperSize}</TableCell>
+                  <TableCell>{item.boxQuantityTotal}</TableCell>
+                  <TableCell>{item.totalPriceAcoShit}</TableCell>
+                  <TableCell>{item.finalPrice}</TableCell>
+                  <TableCell>{item.sheetsRequired}</TableCell>
+                  <TableCell>{item.boxDimensions}</TableCell>
+                  <TableCell>{item.salesPersonLocation}</TableCell>
+                  <TableCell>{item.customerRef}</TableCell>
+                  <TableCell>{item.productId}</TableCell>
+                  <TableCell>
+                    {new Date(item.createdAt).toLocaleString()}
+                  </TableCell>
+                  <TableCell>
+                    {new Date(item.updatedAt).toLocaleString()}
+                  </TableCell>
+
+                  <TableCell>
+                    {item.forwordTo ? item.forwordTo : "Pending"}
+                  </TableCell>
+                  <TableCell>
+                    {" "}
+                    <Button
+                  variant="outlined"
+                    onClick={() => navigate(`/dashboard/item-status/${item._id}`)}
+                    sx={{bgcolor:"#8E0048",color:"white"}}
+                    >
+                      Show Status
+                    </Button>{" "}
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>

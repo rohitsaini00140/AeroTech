@@ -19,6 +19,7 @@ import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import CreateNewFolderIcon from '@mui/icons-material/CreateNewFolder';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 
 import { Sidebar, SidebarItem } from "./Sidebar";
 import { Outlet } from "react-router-dom";
@@ -92,6 +93,13 @@ export default function DashboardLayout() {
         text="GetUser"
         to="/dashboard/get-user"
       />
+
+      <SidebarItem
+        icon={<AddCircleOutlineIcon sx={{ color: "#8E0048" }} />}
+        text="Add Paper"
+        to="/dashboard/addpaper-form"
+      />
+
     </Sidebar>
   );
 
